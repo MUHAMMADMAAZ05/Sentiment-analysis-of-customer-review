@@ -85,9 +85,28 @@ if st.button("Predict Sentiment 🚀"):
 
     else:
         result = predict_sentiment(review)
-        st.success(f"Prediction: {result}")
+        if "Positive" in result:
+            st.markdown(
+                f"""
+                <div style="background-color:#d4edda; color:#155724; padding:15px; 
+                border-radius:10px; font-size:20px; font-weight:bold;">
+                Prediction: {result}
+                </div>
+                """,
+                unsafe_allow_html=True
+                )
+        else:
+            st.markdown(
+            f"""
+            <div style="background-color:#f8d7da; color:#721c24; padding:15px; 
+            border-radius:10px; font-size:20px; font-weight:bold;">
+            Prediction: {result}
+            </div>
+            """,
+            unsafe_allow_html=True
+            )
 
 # FOOTER
 
 st.write("---")
-st.write("Made with ❤️ using Streamlit")
+st.write("Made with Maaz ❤️ using Streamlit")
